@@ -1,13 +1,19 @@
-// const input = document.getElementsByClassName('.input__n');
-const input = document.getElementById("input-ok");
+// querido nahu: estoy super atrasado y sin tiempo para practicar
+// pero quería subir lo que llegué a armar aunque no termina de cerrar.
+
+
+
+//definir
+
+const input = document.getElementsByClassName('.input__n');
 const form = document.getElementsByClassName('.pedido__form');
-const btn_pedido = document.getElementsByClassName('.boton__pedir');
+const btnPedido = document.getElementsByClassName('.boton__pedir');
 const resultado = document.getElementsByClassName('.seccion__resultado');
 const nombrePizza = document.getElementsByClassName('.nombre__pizza');
 const precioPizza = document.getElementsByClassName('.nombre__pizza');
 
-let pedido = [];
 
+//traer y guardar info 
 
 let NumIng = JSON.parse(localStorage.getItem('NumIng')) || [];
 
@@ -15,7 +21,19 @@ const saveLocalStorage = (e) => {
     localStorage.setItem ('NumIng', JSON.stringify(e)) 
 };
 
+//boton
 
+const handleClick = () => {
+    console.log(input.value);
+}
+
+btnPedido.addEventListener ('click', handleClick)
+
+btnPedido?.addEventListener('click', function handleClick(event) {
+    console.log('button clicked');
+});
+
+//definir pizzas
 
 const Pizzas=[
     {id:1, nombre:"Muzza", ingredientes: ['muza', 'salsa tomate'],  precio: 1000},
@@ -27,8 +45,7 @@ const Pizzas=[
 ];
 
 
-
-
+//precio y nombre
 
 const quePrecio = Pizzas.forEach( (e) =>{
             if (Pizzas.id === NumIng) {
@@ -48,6 +65,10 @@ Pizzas.forEach( (e) =>{
     e.id == NumIng ? console.log (`La pizza número ${e.id} se llama ${e.nombre}`) : null;
     }
 );
+
+
+//render en HTML
+
 
 // const crearPedido = pedido =>
 // `
@@ -70,6 +91,16 @@ Pizzas.forEach( (e) =>{
 //     precioPizza.innerHTML = quePrecio;
 // }
 
+
+
+//errores
+
 // const MensajeError = () => {
-// small.innerHTML = 'Elija el número de una pizza'
+// small.innerHTML = ('Elija el número de una pizza')
 // }
+
+// const Error = Pizzas.forEach( (e) =>{
+//             if (!Pizzas.id === NumIng) {
+//                 return true
+//             }
+//         })
